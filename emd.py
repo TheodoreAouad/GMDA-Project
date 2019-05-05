@@ -24,6 +24,7 @@ def EMD_prob(X1,W1,X2,W2,dist="euclid"):
     n = X1.shape[0]
     m = X2.shape[0]
     D = np.zeros((n,m))
+    flow = min(W1.sum(),W2.sum())
     
     if dist == "euclid":
         x1s = np.diag(X1@X1.T).reshape(n,1)
@@ -43,7 +44,7 @@ def EMD_prob(X1,W1,X2,W2,dist="euclid"):
     b1 = np.zeros(n*m)
     b2 = W1
     b3 = W2
-    b4 = min(W1.sum(),W2.sum()) + np.zeros(2)
+    b4 = np.array([flow,-flow])
     
     A = np.vstack((A1,A2,A3,A4))
     b = np.hstack((b1,b2,b3,b4))

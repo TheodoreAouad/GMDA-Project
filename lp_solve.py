@@ -6,7 +6,7 @@ def lp_solve(f = None, a = None, b = None, e = None, vlb = None, vub = None, xin
     """LP_SOLVE  Solves mixed integer linear programming problems.
     SYNOPSIS: [obj,x,duals,stat] = lp_solve(f,a,b,e,vlb,vub,xint,scalemode,keep)
     solves the MILP problem
-             max v = f'*x
+             min v = f'*x
                a*x <> b
                  vlb <= x <= vub
                  x(int) are integer
@@ -42,7 +42,6 @@ def lp_solve(f = None, a = None, b = None, e = None, vlb = None, vub = None, xin
     lpsolve('set_mat', lp, a)
     lpsolve('set_rh_vec', lp, b)
     lpsolve('set_obj_fn', lp, f)
-    lpsolve('set_maxim', lp) # default is solving minimum lp.
 
     for i in range(m):
         if e is None:

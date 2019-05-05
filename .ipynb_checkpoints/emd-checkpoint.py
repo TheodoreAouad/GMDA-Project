@@ -1,38 +1,5 @@
 import numpy as np
 from lp_solve import *
-
-def write_lpfile(f,A,B,option="min",name="to_solve"):
-    '''
-    Write the .lp file to put in the lp_solve.
-    Solves:
-    min/max <x,f>
-    w.t. Ax <= B
-    '''
-    
-    n = f.shape[0]-1
-    file = open(name+".lp","w")
-    #Write the objective function
-    file.write("/* Objective function */\n")
-    file.write(option+": ")
-    towrite = []
-    for idx,k in enumerate(f):
-        if k != 0:
-            towrite.append(str(k)+"x"+str(idx))
-        
-    towrite = " + ".join(towrite) + ";\n"
-    file.write(towrite)
-    file.write("\n")
-    
-    #Write the variable bounds
-    file.write("/* Variable bounds */\n")
-    for a,b in zip(A,B):
-        towrite = []
-        for idx,k in enumerate(a):
-            if k != 0:
-                towrite.append(str(k)+"x"+str(idx))
-        towrite = " + ".join(towrite) + " <= " + str(b) + ";\n"
-        file.write(towrite)
-    file.close()
     
     
 def EMD_prob(X1,W1,X2,W2,dist="euclid"):
@@ -57,6 +24,7 @@ def EMD_prob(X1,W1,X2,W2,dist="euclid"):
     n = X1.shape[0]
     m = X2.shape[0]
     D = np.zeros((n,m))
+    flow = min(W1.sum(),W2.sum())
     
     if dist == "euclid":
         x1s = np.diag(X1@X1.T).reshape(n,1)
@@ -76,7 +44,7 @@ def EMD_prob(X1,W1,X2,W2,dist="euclid"):
     b1 = np.zeros(n*m)
     b2 = W1
     b3 = W2
-    b4 = min(W1.sum(),W2.sum()) + np.zeros(2)
+    b4 = np.array([flow,-flow])
     
     A = np.vstack((A1,A2,A3,A4))
     b = np.hstack((b1,b2,b3,b4))
