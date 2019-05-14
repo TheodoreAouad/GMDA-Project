@@ -34,3 +34,4 @@ The two datasets must be in a csv with each row being a point, each column a coo
 `python show_clusterings_graphs.py`
 
 #### To compute the computation times Q6) of clusterings comparison and put them in a csv "clusterings_times.csv":
+`python compute_clusterings_time.py`
