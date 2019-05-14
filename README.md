@@ -20,7 +20,7 @@ This project was made in python 3.7. We do not ensure compatibility with other v
 
 This project is composed of multiple .py files. Some are meant to be launched from the console while others are only modules.
 
-#### To write a .lp file readable and solvable by the lp_solve app:
+#### To write a .lp file readable and solvable by the lp_solve app as for Q2):
 `python file_writer.py "<path to first dataset.csv>" "<path to second dataset.csv>"` <br/>
 The two datasets must be in a csv with each row being a point, each column a coordinate except the last column which is the weight of the point.
 
