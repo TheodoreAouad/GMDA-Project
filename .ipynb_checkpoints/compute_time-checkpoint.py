@@ -1,3 +1,5 @@
+print("Importing libraries...")
+
 import numpy as np
 import pandas as pd
 from tqdm import tqdm
@@ -5,15 +7,26 @@ import csv
 from utils import *
 from emd import *
 
+print("Imports successful")
+
 def compute_time():
+    '''
+    If the function stops prematurely, it is probably because there is
+    too many points in the dataset.
+    
+    This function computes the time it takes to solve the optimization
+    probleme for given sizes for n and m. It writes the times in a 
+    csv file and in a pkl file.
+    '''
+    
     sigms = 1
     sigma1 = sigms
     sigma2 = sigms
     mean1 = np.array([1,1])
     mean2 = np.array([-1,-1])
 
-    ns = np.array([50,60,70,90,110,130,150,170,190])
-    ms = np.array([50,60,70,90,110,130,150])
+    ns = np.array([50,60,70,90,110])
+    ms = np.array([50,60,70,90,110])
     num_of_rep = 5
 
     objs = np.zeros((ns.shape[0],ms.shape[0]))
@@ -55,3 +68,5 @@ def compute_time():
     timespd = pd.DataFrame(times,index=ns,columns=ms)
     timespd.to_pickle("time_q4.pkl")
     print("Matrix saved.")
+    
+compute_time()

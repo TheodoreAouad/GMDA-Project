@@ -1,6 +1,9 @@
 import numpy as np
 from lp_solve import *
     
+print("Imports successful")
+
+
     
 def EMD_prob(X1,W1,X2,W2,dist="euclid"):
     '''

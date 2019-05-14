@@ -1,6 +1,7 @@
 '''This code is taken from https://github.com/boris-arzur/lp_solve-python/blob/master/lp_solve.py and modified. '''
 
 from lpsolve55 import *
+print("Imports successful")
 
 def lp_solve(f = None, a = None, b = None, e = None, vlb = None, vub = None, xint = None, scalemode = None, keep = None):
     """LP_SOLVE  Solves mixed integer linear programming problems.

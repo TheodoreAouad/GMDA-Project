@@ -1,6 +1,11 @@
+print("Importing libraries...")
+
 import utils as u
 import numpy as np
 import matplotlib.pyplot as plt
+
+print("Imports successful")
+
 
 mean1 = np.array([1,1])
 mean2 = np.array([-1,-5])
