@@ -13,7 +13,7 @@ def compare_clusters(C1,C2,weights=None):
     C1: k x n array, matrix of soft clustering
     C2: k x n array, matrix of soft clustering
     weights:  None OR tuple of two k vectors.
-    If weights = None, the weights will be the sum of the coefficients for each cluster.
+    If weights is None, the weights will be the sum of the coefficients for each cluster.
     
     Output:
     Earth Moving Distance
@@ -28,6 +28,5 @@ def compare_clusters(C1,C2,weights=None):
         W1,W2 = weights
     
     #assert W1.sum() == 1 and W2.sum() == 1, "Weights must sum to 1"
-    print(C1.shape,W1.shape,C2.shape,W2.shape)
     emd,x,time = EMD(C1,W1,C2,W2,l1_dist)
     return emd
