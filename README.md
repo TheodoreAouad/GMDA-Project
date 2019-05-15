@@ -1,6 +1,6 @@
 # GMDA-Project
 
-This project was made in python 3.7. We do not ensure compatibility with other versions of python.
+This project was made in python 3.7 using windows. We do not ensure compatibility with other versions of python.
 
 ## Installation
 
@@ -11,7 +11,6 @@ This project was made in python 3.7. We do not ensure compatibility with other v
 `pip install -r "requirements.txt"`
 
 #### On Linux/MacOS:
-`pip install ./requirements/lpsolve55-5.5.2.5-cp37-cp37m-win_amd64.whl`
 
 #### On Windows:
 `pip install requirements\lpsolve55-5.5.2.5-cp37-cp37m-win_amd64.whl`
