@@ -10,9 +10,9 @@ This project was made in python 3.7 using windows. We do not ensure compatibilit
 #### Install the requirements in the folder requirements:
 `pip install -r "requirements.txt"`
 
-#### On Linux/MacOS:
+#### Install the lpsolve55 library on Linux/MacOS:
 
-#### On Windows:
+#### Install the lpsolve55 library on Windows:
 `pip install requirements\lpsolve55-5.5.2.5-cp37-cp37m-win_amd64.whl`
 
 ## Use case
